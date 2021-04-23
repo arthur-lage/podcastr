@@ -38,7 +38,7 @@ export function PlayerContextProvider({
   }
 
   function playList(list: Episode[], index: number){
-    setEpisodeList([list]);
+    setEpisodeList(list);
     setCurrentEpisodeIndex(index);
     setIsPlaying(true);
   }
