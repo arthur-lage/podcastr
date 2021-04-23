@@ -1,5 +1,5 @@
 import { useContext, useEffect, useRef } from 'react';
-import { PlayerContext } from '../../contexts/PlayerContext';
+import { PlayerContext, PlayerContextProvider } from '../../contexts/PlayerContext';
 
 import Slider from 'rc-slider'
 import 'rc-slider/assets/index.css'
@@ -12,10 +12,9 @@ export function Player(){
 
     const { episodeList, 
         currentEpisodeIndex, 
-        isPlaying, 
+        isPlaying,
         togglePlay, 
         setPlayingState } = useContext(PlayerContext);
-
     const audioRef = useRef<HTMLAudioElement>(null);
 
     const episode = episodeList[currentEpisodeIndex];
@@ -44,9 +43,9 @@ export function Player(){
             { episode ? (
                 <div className={styles.currentEpisode}>
                     <Image 
+                    src={episode.thumbnail}
                     width={592}
                     height={592}
-                    src={episode.thumbnail}
                     objectFit="cover"
                     />
                     <strong>{episode.title}</strong>
