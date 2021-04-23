@@ -12,6 +12,8 @@ import parseISO from 'date-fns/parseISO';
 import styles from './episode.module.scss'
 import Link from 'next/link';
 
+import { usePlayer } from '../../contexts/PlayerContext';
+
 type Episode = {
     id: string;
     title: string;
@@ -29,7 +31,7 @@ type EpisodeProps = {
 }
 
 export default function Episode({ episode }: EpisodeProps) {
-
+    const { play } = usePlayer();
     const router = useRouter();
 
     return(
@@ -46,7 +48,7 @@ export default function Episode({ episode }: EpisodeProps) {
                 src={episode.thumbnail} 
                 alt={episode.title} 
                 objectFit="cover"/>
-                <button type="button">
+                <button type="button" onClick={() => play(episode)}>
                     <img src="/play.svg" alt="Tocar episódio"/>
                 </button>
             </div>

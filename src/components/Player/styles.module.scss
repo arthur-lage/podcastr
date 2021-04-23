@@ -27,7 +27,7 @@
   footer {
     align-self: stretch;
 
-    &.empty {
+    &.empty .progress {
       opacity: 0.5;
     }
   }
@@ -109,15 +109,24 @@
   button {
     background: transparent;
     border: 0;
-    transition: filter .2s ease;
+    transition: filter 0.2s ease;
     font-size: 0;
-    
-    &:hover:not(disabled){
-        filter: brightness(.7);
+
+    &:hover:not(disabled) {
+      filter: brightness(0.7);
     }
 
-    &:disabled{
-        cursor: default;
+    &:disabled {
+      cursor: default;
+      filter: brightness(0.7);
+    }
+
+    &.isActive {
+      filter: invert(0.35) sepia(1) saturate(3) hue-rotate(100deg);
+    }
+
+    &.isActive:hover {
+      filter: brightness(0.6) invert(0.35) sepia(1) saturate(3) hue-rotate(100deg);
     }
 
     &.playButton {
@@ -126,9 +135,9 @@
       border-radius: 1rem;
       background: var(--purple-400);
 
-      &:hover:not(disabled){
-        filter: brightness(.95);
-    }
+      &:hover:not(disabled) {
+        filter: brightness(0.95);
+      }
     }
   }
 }
