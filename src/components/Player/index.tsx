@@ -9,8 +9,6 @@ import Image from 'next/image'
 import styles from './styles.module.scss';
 import { convertDurationToTimeString } from '../../utils/convertDurationToTimeString';
 
-import Head from 'next/head';
-
 export function Player(){
 
     const { episodeList, 
@@ -72,11 +70,6 @@ export function Player(){
 
     return(
         <div className={styles.playerContainer}>
-
-            <Head>
-                <title>{episode.title} | Podcastr</title>
-            </Head>
-
             <header>
                 <img src="/playing.svg" alt="Tocando Agora"/>
                 <strong>Tocando agora</strong>
